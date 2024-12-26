@@ -16,13 +16,10 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                   // sh """
-                   //     echo "//${NEXUS_URL_NODE}:_auth=amVua2luczpKM25rMW5zQA==" > ~/.npmrc
-                   //     echo "//${NEXUS_URL_NODE}:_authToken=NpmToken.04bc8815-3d62-30a4-9e8f-369c17ba9cd6" >> ~/.npmrc
-                   //     echo "registry=${NEXUS_URL_NODE}" >> ~/.npmrc
-                   // """
-
-                    sh 'npm install'
+                    sh 'npm config list'
+                    sh 'npm config get registry'
+                    sh 'npm config get _auth'
+                    sh 'npm install --verbose'
                 }
             }
         }
