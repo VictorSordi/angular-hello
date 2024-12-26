@@ -22,8 +22,9 @@ RUN sed -i.bak 's/listen\(.*\)80;/listen 8080;/' /etc/nginx/conf.d/default.conf
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 RUN export APP_NAME=$(ls /dist | head -n 1) && \
-    echo "Application name: $APP_NAME"
+    echo "Application name: $APP_NAME" && \
+    mv /dist/$APP_NAME /dist/app
 
-COPY /dist/* /usr/share/nginx/html
+COPY dist/app /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
