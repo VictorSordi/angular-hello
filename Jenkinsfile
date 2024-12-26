@@ -15,8 +15,8 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
-                echo "//localhost:8091/repository/npm-public/:_auth=amVua2luczpKM25rMW5zQA==" > ~/.npmrc
-                echo "//localhost:8091/repository/npm-public/:_authToken=NpmToken.04bc8815-3d62-30a4-9e8f-369c17ba9cd6" > ~/.npmrc
+                echo "//${NEXUS_URL_NODE}:_auth=amVua2luczpKM25rMW5zQA==" > ~/.npmrc
+                echo "//${NEXUS_URL_NODE}:_authToken=NpmToken.04bc8815-3d62-30a4-9e8f-369c17ba9cd6" > ~/.npmrc
                 echo "registry=${NEXUS_URL_NODE}" >> ~/.npmrc
                 sh 'npm install'
             }
