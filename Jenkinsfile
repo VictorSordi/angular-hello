@@ -16,7 +16,9 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    echo "registry=http://localhost:8091/repository/npm-public/" > ~/.npmrc
+                    sh """
+                        echo "registry=http://localhost:8091/repository/npm-public/" > ~/.npmrc
+                    """
                     sh 'npm config list'
                     sh 'npm config get registry'
                     sh 'npm install --verbose'
