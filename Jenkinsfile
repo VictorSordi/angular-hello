@@ -16,13 +16,17 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
+                    // Criação do arquivo .npmrc com as configurações necessárias
                     echo "//${NEXUS_URL_NODE}:_auth=amVua2luczpKM25rMW5zQA==" > ~/.npmrc
-                    echo "//${NEXUS_URL_NODE}:_authToken=NpmToken.04bc8815-3d62-30a4-9e8f-369c17ba9cd6" > ~/.npmrc
+                    echo "//${NEXUS_URL_NODE}:_authToken=NpmToken.04bc8815-3d62-30a4-9e8f-369c17ba9cd6" >> ~/.npmrc
                     echo "registry=${NEXUS_URL_NODE}" >> ~/.npmrc
+
+                    // Instalar dependências
                     sh 'npm install'
                 }
             }
         }
+
 
         stage('build docker image'){
         steps{
