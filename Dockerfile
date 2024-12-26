@@ -14,17 +14,17 @@ EXPOSE 8080
 RUN rm /etc/nginx/conf.d/default.conf && rm /etc/nginx/nginx.conf
 
 COPY default.conf /etc/nginx/conf.d/default.conf
-
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN sed -i.bak 's/listen\(.*\)80;/listen 8080;/' /etc/nginx/conf.d/default.conf
-
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 RUN export APP_NAME=$(ls /dist | head -n 1) && \
     echo "Application name: $APP_NAME" && \
-    mv /dist/$APP_NAME /dist/app
+    mv /dist/$APP_NAME /dist/app && \
+    ls -l /dist
 
+# Usando o caminho relativo para garantir que os arquivos sejam copiados corretamente
 COPY dist/app /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
