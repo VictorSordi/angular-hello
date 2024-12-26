@@ -15,6 +15,6 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 # Copiar o diretório gerado no build para o Nginx
-COPY --from=0 /app/dist/app /usr/share/nginx/html
+COPY --from=0 /app/dist/ /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
