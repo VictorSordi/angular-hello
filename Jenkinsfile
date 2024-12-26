@@ -63,9 +63,9 @@ pipeline {
             steps{
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-user', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL_DOCKER}'
-                        sh 'docker tag angular-hello/app:${TAG} ${NEXUS_URL_DOCKER}/angular-hello/app:${TAG}'
-                        sh 'docker push ${NEXUS_URL_DOCKER}/angular-hello/app:${TAG}'
+                        sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL}'
+                        sh 'docker tag angular-hello/app:${TAG} ${NEXUS_URL}/angular-hello/app:${TAG}'
+                        sh 'docker push ${NEXUS_URL}/angular-hello/app:${TAG}'
                     }
                 }
             }
