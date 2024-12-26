@@ -18,7 +18,6 @@ pipeline {
                 script {
                     sh 'npm config list'
                     sh 'npm config get registry'
-                    sh 'npm config get _auth'
                     sh 'npm install --verbose'
                 }
             }
