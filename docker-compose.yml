@@ -1,0 +1,6 @@
+version: '3'
+services:
+  angular-hello:
+    build: .
+    ports:
+      - 2020:2020
