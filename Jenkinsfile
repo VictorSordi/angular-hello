@@ -15,6 +15,9 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
+                echo "//localhost:8091/repository/npm-public/:_auth=amVua2luczpKM25rMW5zQA==" > ~/.npmrc
+                echo "//localhost:8091/repository/npm-public/:_authToken=NpmToken.04bc8815-3d62-30a4-9e8f-369c17ba9cd6" > ~/.npmrc
+                echo "registry=${NEXUS_URL_NODE}" >> ~/.npmrc
                 sh 'npm install'
             }
         }
@@ -55,9 +58,9 @@ pipeline {
             steps{
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-user', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL}'
-                        sh 'docker tag angular-hello/app:${TAG} ${NEXUS_URL}/angular-hello/app:${TAG}'
-                        sh 'docker push ${NEXUS_URL}/angular-hello/app:${TAG}'
+                        sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL_DOCKER}'
+                        sh 'docker tag angular-hello/app:${TAG} ${NEXUS_URL_DOCKER}/angular-hello/app:${TAG}'
+                        sh 'docker push ${NEXUS_URL_DOCKER}/angular-hello/app:${TAG}'
                     }
                 }
             }
