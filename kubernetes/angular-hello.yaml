@@ -37,7 +37,7 @@ spec:
   selector:
     app: angular-hello
   ports:
-  - port: 2020
+  - port: 4000
     targetPort: 4000
     name: tcp
 
@@ -61,4 +61,4 @@ spec:
           service:
             name: angular-hello
             port: 
-              number: 2020
+              number: 4000
