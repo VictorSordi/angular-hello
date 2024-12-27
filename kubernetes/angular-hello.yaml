@@ -24,7 +24,7 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 8080
+        - containerPort: 4000
 
 ---
 
@@ -38,7 +38,7 @@ spec:
     app: angular-hello
   ports:
   - port: 4000
-    targetPort: 8080
+    targetPort: 4000
     name: tcp
 
 ---
