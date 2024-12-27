@@ -24,7 +24,7 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 8080
+        - containerPort: 4000
 
 ---
 
@@ -37,8 +37,8 @@ spec:
   selector:
     app: angular-hello
   ports:
-  - port: 2020
-    targetPort: 8080
+  - port: 4000
+    targetPort: 4000
     name: tcp
 
 ---
@@ -61,4 +61,4 @@ spec:
           service:
             name: angular-hello
             port: 
-              number: 2020
+              number: 4000
