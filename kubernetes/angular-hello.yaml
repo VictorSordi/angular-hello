@@ -25,6 +25,9 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 4000
+        env:
+        - name: PORT
+          value: "4000"
 
 ---
 

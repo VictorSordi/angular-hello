@@ -44,12 +44,12 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['4000'] || 4000;
+  const port = process.env['PORT'] || 4000;
 
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:4000`);
+    console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
 
