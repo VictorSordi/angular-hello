@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have the 'angular-blank' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-blank');
+    expect(app.title).toEqual('angular-hello');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-blank');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-hello');
   });
 });
