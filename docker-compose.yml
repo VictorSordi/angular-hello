@@ -3,4 +3,4 @@ services:
   angular-hello:
     build: .
     ports:
-      - 4000:4000
+      - 8090:8090

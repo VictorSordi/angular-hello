@@ -8,8 +8,6 @@ COPY . .
 # Instalar dependências
 RUN npm install
 
-EXPOSE 4000
-
 # Gerar a pasta dist (depois de npm install, execute o build)
 RUN npm run build
 
