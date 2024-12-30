@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-blank",
+            "outputPath": "dist/angular-hello",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-blank:build:production"
+              "buildTarget": "angular-hello:build:production"
             },
             "development": {
-              "buildTarget": "angular-blank:build:development"
+              "buildTarget": "angular-hello:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-blank:build"
+            "buildTarget": "angular-hello:build"
           }
         },
         "test": {
